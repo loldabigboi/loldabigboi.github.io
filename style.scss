@@ -150,6 +150,8 @@ body, html {
 
 .carousel-item {
 
+    user-select: none;
+    -webkit-user-drag: none;
     position: absolute;
     border: 2px solid white;
     transition: border-color 0.5s ease-in-out;
