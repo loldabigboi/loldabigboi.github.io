@@ -1,3 +1,9 @@
+let titleElement       = document.getElementById("project-title"),
+                         informationElement = document.getElementById("project-information"),
+                         descElement        = document.getElementById("project-description"),
+                         githubLinkElement  = document.getElementById("project-github-link"),
+                         pageLinkElement    = document.getElementById("project-page-link");
+
 function map(value, rangeStart, rangeEnd, otherRangeStart, otherRangeEnd) {
 
     if (value < rangeStart) {
@@ -272,12 +278,6 @@ class Carousel {
 
             this.selectedItem = item;
             this.selectedItem.style.border = "2px solid transparent";
-
-            let titleElement       = document.getElementById("project-title"),
-                informationElement = document.getElementById("project-information"),
-                descElement        = document.getElementById("project-description"),
-                githubLinkElement  = document.getElementById("project-github-link"),
-                pageLinkElement    = document.getElementById("project-page-link");
 
             titleElement.style.opacity = 1;
             informationElement.style.opacity = 1;
