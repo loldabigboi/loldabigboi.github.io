@@ -74,7 +74,6 @@ class Carousel {
             let carouselItem = document.createElement("div");
             carouselItem.className = "carousel-item rainbow-animated-bg";
             carouselItem.style.userSelect = "none";
-            carouselItem.draggable = false;
             carouselItem.relativePos = relativePos;
             carouselItem.size = maxItemSize;
             carouselItem.data = data;
