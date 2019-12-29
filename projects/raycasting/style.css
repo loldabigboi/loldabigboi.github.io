@@ -1,0 +1,68 @@
+#content-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#project-container {
+  margin-top: 60px;
+}
+
+#project-title {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  display: block;
+}
+
+#project-github-link {
+  margin-bottom: 25px;
+}
+
+#canvas-container {
+  line-height: 0;
+  float: left;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 2px solid black;
+}
+
+#information-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 25px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 600px;
+  height: 604px;
+  float: right;
+}
+
+#description-container {
+  padding-right: 10px;
+  line-height: 24px;
+  white-space: pre-line;
+  text-align: justify;
+  overflow-y: scroll;
+}
+
+#controls-list {
+  white-space: normal;
+  list-style-position: inside;
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,149 @@
+body, html {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Quicksand";
+    font-weight: 400;
+}
+
+.bold {
+    font-weight: 600;
+}
+
+.nowrap-text {
+    display: block;
+    white-space: pre;
+    text-align: justify;
+}
+
+.inline-link {
+    font-size: inherit !important;
+}
+
+.nav-link {
+
+    color: black;
+    display: inline-block;
+    position: relative;
+    font-size: 24px;
+    text-decoration: none;
+    user-select: none;
+
+    &:hover {
+        color: grey;
+        cursor: pointer;
+    }
+
+}
+
+#nav-container {
+
+    width: fit-content;
+    margin: 66px auto;
+
+    a + a {
+
+        margin-left: 40px;
+
+        &::before {
+            content: '';
+            position: absolute;
+            border-radius: 2px;
+            top: 0;
+            left: -21px;
+            width: 2px;
+            height: 30px;
+            background: black;
+        }
+
+    }
+
+
+}
+
+.centered-link {
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    text-decoration: none;
+    color: black;
+
+    &:hover {
+        opacity: 65%;
+    }
+
+}
+
+.active-underline {
+
+    position: absolute;
+    height: 1px;
+    left: 50%;
+    right: 50%;
+    background: black;
+    transition: all ease-in-out 0.5s;
+
+}
+
+.inline-image-left {
+
+    height: 20px;
+    margin-right: 10px;
+
+}
+
+.inline-image-right {
+    height: 20px;
+    margin-left: 10px;
+}
+
+
+.rainbow-animated-bg {
+    
+    background: linear-gradient(to right, #6666ff, #0099ff , #00ff00, #ff3399, #6666ff);
+    animation: rainbow_animation 2.5s linear infinite;
+    background-size: 400% 100%;
+
+}
+
+.text-mask-bg {
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+@keyframes rainbow_animation {
+    100% {
+        background-position: 0 0;
+    }
+
+    0% {
+        background-position: 120% 0;
+    }
+}
+
+// scroll bar styles
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: white;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(210,210,210);
+    &:hover {
+        background: rgb(200,200,200);
+    }
+    &:active {
+        background: rgb(180,180,180);
+    }
+}

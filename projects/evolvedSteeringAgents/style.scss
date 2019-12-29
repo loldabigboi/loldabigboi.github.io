@@ -1,0 +1,113 @@
+#content-container {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+#project-container {
+    margin-top: 60px;
+}
+
+#project-title {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    display: block;
+}
+
+#project-github-link {
+    margin-bottom: 25px;
+}
+
+#canvas-container {
+
+    line-height: 0;
+    float: left;
+    box-sizing: border-box;
+    border: 2px solid black;
+
+}
+
+#information-container {
+
+    //background: red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 25px;
+    box-sizing: border-box;
+    width: 600px;
+    height: 604px;  // to acount for borders of canvas
+    float: right;
+
+}
+
+#description-container {
+    padding-right: 10px;  // to account for scrollbar
+    line-height: 24px;
+    text-align: justify;
+    overflow-y: scroll;
+}
+
+#controls-container {
+    margin-bottom: 20px;
+}
+
+#slider-container {
+
+    float: left;
+    div {
+
+        p {
+            margin-right: 10px;
+        }
+
+        input {
+            display: block;
+            margin-left: auto;
+        }
+
+        display: flex;
+        align-items: center;
+
+        & + div {
+            margin-top: 5px;
+        }
+
+    }
+
+}
+
+#button-container {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    float: right;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 5px;
+
+    margin-left: 20px;
+
+    
+
+    button {
+
+        display: block;
+        width: 100%;
+        padding: 2px 5px;
+
+        & + button {
+
+            margin-top: 8px;
+            
+        }
+
+        
+    }
+
+}

@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Jackson Ayling-Campbell</title>
+    <meta name="author" content="Jackson Ayling-Campbell">
+    <meta name="description" content="Home page for my portfolio">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Nunito|Pacifico|Quicksand|Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="../../globalStyle.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.min.js"></script>
+
+</head>
+
+<body>
+
+    <div id="nav-container">
+        <a id="home-nav-link" class="nav-link" href="/">
+            HOME
+        </a>
+        <a id="projects-nav-link" class="nav-link" href='/?screen="projects"'>
+            PROJECTS
+        </a>
+        <a id="about-nav-link" class="nav-link" href='/?screen="about"'>
+            ABOUT
+        </a>
+    </div>
+
+    <div id="content-container">
+        <div id="project-container">
+            <div id="canvas-container"></div>
+            <div id="information-container">
+                <h1 id="project-title" class="rainbow-animated-bg text-mask-bg">Advanced Raycasting</h1>
+                <a id="project-github-link" class="centered-link" href="#">
+                    <img class="inline-image-left" src="https://logo.clearbit.com/github.com">
+                    Github Repository
+                </a>
+                <div id="description-container">
+                    <ul id="controls-list"><span class="bold">Controls:</span>
+                        <li>WASD to move</li>
+                        <li>Character faces the mouse's position</li>
+                        <li>Q / E to increase / decrease FOV</li>
+                        <li>Up arrow / down arrow (or mouse wheel) to increase / decrease view radius</li>
+                        <li>Z to toggle debug mode</li>
+                        <li>X to pause rendering (FPS and mouse pos in top right still renders)</li>
+                    </ul>
+                    <p id="project-description"><span class="bold">GUI explanation:</span>
+                        The green polygon is the area that is being 'illuminated' by the raycaster. The numbers in the top-right are the mouse's coordinates and the framerate. In the top-left is the number of rays currently being cast. When debug mode is activated, circles are drawn at various points (if they can be 'seen' by the raycaster). Green circles are drawn where obstacle edges intersect, dark blue circles are draw at obstacle vertices, cyan circles are drawn where obtstacle edges intersect the view radius, and finally the tiny red circles are the vertices of the illumination polygon.
+    
+                        <span class="bold">Description:</span>
+                        This algorithm is an improvement upon the traditional raycasting algorithm in two ways: performance and precision. Performance wise this is an improvement as the number of rays cast is significantly reduced. However, this performance advantage will eventually disappear as the number of objects within the algorithm's 'view' increases, as will be clear in the coming paragraphs. Precision wise this is a massive improvement upon the traditional raycasting algorithm as rays are cast an infinitesimal distance to the left and right of each object's vertices, thus there is no visible jittering effect.
+    
+                        This algorithm is an iteration of one which I found online, the source of which I, unfortunately, can no longer find. This original algorithm seeks to reduce the number of rays cast by simply casting rays directly at the vertices of objects, rather than at set intervals. This will almost always result in a reduced number of rays being cast, unless one uses a very large interval when casting rays at a regular interval. By casting rays in this fashion, we completely eliminate any 'jittering' which can be seen in the traditional algorithm, especially at distance from the ray source. This is done by casting a ray directly at, slightly to the left and slightly to the right of all object vertices.
+    
+                        While this algorithm is an improvement in some ways, it is also more restrictive. If we use this method, we cannot have a fixed view radius as this algorithm relies upon all rays intersecting an obstacle. Hence, we could not cut-off rays past a certain distance without creating an unnatural appearance and functionality. We also cannot have obstacle edges intersect eachother. Further, we cannot have a fixed FOV, however this is <span class="rainbow-animated-bg text-mask-bg">trivial</span> as we simply cast rays at the beginning and end of said FOV, so this is a non-issue.
+    
+                        In order to fix these issues, we must cast rays to the points where the edges of obstacles intersect our view radius and where they intersect with other edges. We only need to cast a single ray to these points (no offset rays like we did with obstacle vertices). Note that, while it might be tempting to, we cannot simply create vertices at these points as there may be an obstacle in the way.
+    
+                        We must also fill in the view radius perimeter with vertices in order to create a circular finish. This only needs to be done when two adjacent rays did not intersect anything, or intersected something at the very edge of our view radius.
+    
+                        This leaves us with the algorithm depicted on the left. My implementation still has a few bugs - sometimes the rendered illumination polygon will have darker regions for whatever reason, and sometimes the polygon flickers. I'm not sure if these are issues with my code, or with the library I used (p5js) to render the polygons etc. Nonetheless, this algorithm is an improvement upon the traditional algorithm in all facets, bar complexity, in almost all cases.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <script src="js/MathLib.js"></script>
+    <script src="js/Vector2.js"></script>
+    <script src="js/Line.js"></script>
+    <script src="js/Obstacle.js"></script>
+    <script src="js/RayCaster.js"></script>
+    <script src="js/LightSource.js"></script>
+    <script src="js/main.js"></script>
+        
+</body>
+
+</html>
