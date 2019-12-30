@@ -36,6 +36,8 @@ function changeUrl(newUrl) {
 
 homeLink.addEventListener("click", (event) => {
 
+    changeUrl(window.location.href.split("?")[0]);
+
     homeContainer.style.left = "50%";
     homeContainer.style.transform = "translate(-50%, -50%)";
     homeContainer.style.opacity = "100%";
@@ -122,4 +124,9 @@ if (paramSearch.has("screen")) {
     } else if (param === '"about"') {
         aboutLink.click();
     }
+}
+
+// have nav fade in if user lands on home page
+if (!window.location.href.split("?")[1]) {
+    document.getElementById("nav-container").className += " fade-in";
 }

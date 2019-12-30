@@ -25,6 +25,10 @@ body, html {
     font-size: inherit !important;
 }
 
+.no-transition {
+    transition: none;
+}
+
 .nav-link {
 
     color: black;
@@ -63,7 +67,20 @@ body, html {
 
     }
 
+}
 
+.fade-in {
+
+    animation: fade-in ease-in-out 2s;
+    @keyframes fade-in {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    
 }
 
 .centered-link {

@@ -6,8 +6,6 @@ body, html {
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
   -webkit-transition: all 1s ease-in-out;
   transition: all 1s ease-in-out;
   -webkit-transition-property: left, right, opacity, -webkit-transform;
@@ -19,9 +17,13 @@ body, html {
 #home-container {
   padding: 20px 40px;
   border: 2px solid black;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-box-shadow: 0 18px 25px -12px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 18px 25px -12px rgba(0, 0, 0, 0.2);
   background: none;
-  -webkit-animation: bob 2s ease-in-out infinite running alternate;
-          animation: bob 2s ease-in-out infinite running alternate;
+  -webkit-animation: bob 2.5s 2.5s ease-in-out infinite running alternate, ascend 2.5s ease-in-out;
+          animation: bob 2.5s 2.5s ease-in-out infinite running alternate, ascend 2.5s ease-in-out;
 }
 
 @-webkit-keyframes bob {
@@ -51,6 +53,28 @@ body, html {
             box-shadow: 0 8px 10px -6px rgba(0, 0, 0, 0.35);
     -webkit-transform: translate(-50%, calc(-50% + 5px));
             transform: translate(-50%, calc(-50% + 5px));
+  }
+}
+
+@-webkit-keyframes ascend {
+  0% {
+    opacity: 0;
+    margin-top: 75px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: -5px;
+  }
+}
+
+@keyframes ascend {
+  0% {
+    opacity: 0;
+    margin-top: 75px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: -5px;
   }
 }
 
