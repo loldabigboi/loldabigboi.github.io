@@ -10,6 +10,7 @@ body, html {
     left: 50%;
     transform: translate(-50%, -50%);
     transition: all 1s ease-in-out;
+    transition-property: left, right, transform, opacity;
 }
 
 #home-container {
@@ -149,7 +150,7 @@ body, html {
 }
 
 .carousel-item {
-    
+
     pointer-events: none;
     position: absolute;
     border: 2px solid white;

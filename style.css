@@ -10,6 +10,10 @@ body, html {
           transform: translate(-50%, -50%);
   -webkit-transition: all 1s ease-in-out;
   transition: all 1s ease-in-out;
+  -webkit-transition-property: left, right, opacity, -webkit-transform;
+  transition-property: left, right, opacity, -webkit-transform;
+  transition-property: left, right, transform, opacity;
+  transition-property: left, right, transform, opacity, -webkit-transform;
 }
 
 #home-container {
