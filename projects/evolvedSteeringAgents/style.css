@@ -29,8 +29,8 @@
 #canvas-container {
   line-height: 0;
   float: left;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  width: 800px;
+  height: 600px;
   border: 2px solid black;
 }
 

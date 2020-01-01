@@ -133,6 +133,10 @@ body, html {
   letter-spacing: 1px;
   font-size: 36px;
   font-weight: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   margin-bottom: 120px;
 }
 
