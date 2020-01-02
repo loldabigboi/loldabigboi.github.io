@@ -119,7 +119,6 @@ class Carousel {
         this.onMouseUpCallback    = (e) => { this.onMouseUp(e);    };
 
         this.element.addEventListener("mousedown", this.onMouseDownCallback);
-
         this.update();
 
     }
@@ -315,6 +314,18 @@ class Carousel {
 
     onMouseDown(e) {
 
+        // deselect all selected text on page
+        // retrieved from https://stackoverflow.com/questions/3169786/clear-text-selection-with-javascript, user ChaseMoskal
+        (function deselect(){
+            var selection = ('getSelection' in window)
+              ? window.getSelection()
+              : ('selection' in document)
+                ? document.selection
+                : null;
+            if ('removeAllRanges' in selection) selection.removeAllRanges();
+            else if ('empty' in selection) selection.empty();
+        })();
+
         this.userMoving = true;
         document.addEventListener("mousemove", this.onMouseMoveCallback);
         document.addEventListener("mouseup"  , this.onMouseUpCallback  );
@@ -342,6 +353,7 @@ class Carousel {
     onMouseUp(e) {
 
         this.userMoving = false;
+        console.log("mouseup");
         document.removeEventListener("mousemove", this.onMouseMoveCallback);
         document.removeEventListener("mouseup", this.onMouseUpCallback);
 
