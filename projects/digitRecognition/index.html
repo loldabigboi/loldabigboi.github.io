@@ -41,8 +41,8 @@
                 </a>
                 <div id="controls-container">
                     <div id="button-container">
-                        <button onclick="clearCanvas()">Clear canvas</button>
                         <button onclick="guess()">Guess</button>
+                        <button onclick="clearCanvas()">Clear canvas</button>
                     </div>
                     <div id="results-container">
                         <p id="first-guess">? - ??.??% probability</p>
@@ -53,30 +53,36 @@
                 <div id="description-container">
                     <p id="project-description">
                         <span class="bold">Controls:</span><br>
-                        Various parameters regarding the simulation can be tweaked using the inputs above.
-                        "Debug", when turned on, renders the view radii and attraction / repulsion parameters for each agent.
-                        These graphics are colour-coded, green being for food, red for poison and blue for agents. If a circle (view radius) is highlit,
-                        that indicates that the given agent has detected an entity of that type in its view radius.
+                        Click and drag on the black canvas to the left in order to draw a number. Click the "Guess"
+                        button above to get the neural network's top 3 guesses for what number you have drawn, or click
+                        "Clear canvas" to set the canvas back to a blank state (all black).
+                        <br><br>
+                        <span class="bold">Note:</span><br>
+                        <i>
+                            For the most accurate predictions, try to keep the digit size to roughly ~85% of the canvas size and close to the center. This is advised as no pre-processing regarding the positioning or
+                            relative size of the digit is done.
+                        </i>
                         <br><br>
                         <span class="bold">Description:</span><br>
-                        This simulates the evolution of a species as they adapt to their environment. Said species is made up
-                        of steering agents; vehicles which have a velocity, position and steering mechanics according to what
-                        they are currently seeking. This steering behaviour is governed by 2 parameters - the view radius of the
-                        vehicle, and its attraction to a spotted entity. This attraction can be either positive or negative - 
-                        positive drawing the agent towards the entity, and negative doing the opposite. There are three types of
-                        entities in this world: food, poison and agents, all of which have unique parameter pairings in an agent.
+                        This program utilises a convolutional neural network in order to predict the digit that the
+                        user has drawn. This neural network was implemented using a neural network library created by me,
+                        the github repository of which can be accessed <span onclick="location='https://github.com/loldabigboi/ezml.js'" class="nav-link inline-link">here</span>.
                         <br><br>
-                        Evolution is simulated by having an initial randomly generated population, and then having a small
-                        chance for them to reproduce asexually every frame. Eating food prolongs the lifespan of an agent, whereas
-                        eating poison decreases their lifespan. Hence, rather than having an explicit fitness function as is common
-                        to most genetic algorithms, this simulation uses a pseudo-fitness-function which dictates that the longer an
-                        agent survives, the more likely it is to reproduce (according to the laws of probability).
+                        This neural network is made up of 6 layers. The first is a convolutional layer with 16 5x5 filters and ReLU activation (which is applied before convolution), that takes as input
+                        a 28x28x1 matrix (nested arrays). The second is a max pooling layer with filter size 2x2. The next two layers are of the same type
+                        and configuration as the previous two, except this second convolutional layer has 32 filters. The fifth layer is a fully-connected layer with ReLU activation and 256 neurons that takes as input
+                        the flattened outputs of the previous (pooling) layer. Finally, the sixth (output) layer is a fully-connected layer with 10 neurons and softmax activation.
                         <br><br>
-                        When an agent creates an offspring, this offspring inherits its 'DNA' from the parent, and every gene in this DNA has a 
-                        small chance of mutation during reproduction. Hence, natural selection is emulated. One problem with this simulation is that
-                        the initial population is admittedly too small, and so often the species simply dies out due to a lack of variety in genes
-                        (or lack of agents with favourable genes). To solve this a larger world would need to be created, so that more agents could be
-                        created initially without cramming them together.
+                        The model was trained and tested using the MNIST hand-drawn digit dataset. Error was calculated during training by using cross-entropy error, and this error was distributed through the network using back-propagation. Stochastic gradient descent
+                        was used to update the weights of the model, with an initial learning rate of 0.01 (or 0.001, can't quite remember) that was manually decreased gradually. I'm not sure how many
+                         epochs the model was trained on as I did not keep track, however the model ended with a training accuracy% of roughly 98.5%, and a test accuracy% of roughly 97%.
+                        <br><br>
+                        The library used to create this model unfortunately has a fairly severe bug where it is not possible for the first layer of weights to be tuned during training. I discovered this bug when
+                        I realised that I had made a typo in the for-loop used during back-propagation, which made it so that the first layer of weights was never reached (the condition was i > 0 instead of i >= 0,
+                        and it was iterating backwards). Fixing this typo causes the model's outputs to explode in magnitude (for softmax the outputs reach 0 and 1, which should not typically be possible), causing
+                        the gradient calculation functions to return NaN or Infinity, which then quickly spreads to the rest of the network leading to complete failure. I have deliberated over trying to fix this bug
+                        extensively, however my attempts have, so far, been fruitless. Because of this, I have moved on to Python and am using the PyTorch machine learning library for future projects. I hope to fix this
+                        bug eventually, or redesign the library altogether as it is really quite messy, but for the time being the library will remain relatively untouched.
                     </p>
                 </div>
             </div>
