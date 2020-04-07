@@ -387,9 +387,16 @@ is generated randomly for the first generation, and then subsequent generations 
 of mutation.
 `
 
+let digitRecognitionDesc = `
+A convolutional neural network that tries to guess the digit that you draw. Created using a neural network
+library that I programmed in javascript, using the p5js library for graphics rendering. Further details of the
+neural network itself can be found by demoing the project :).
+`
+
 let data = [ 
     new ProjectData( "Advanced Raycasting", raycastingDesc, "resources/advancedRaycasting.png", "projects/raycasting/index.html", "https://github.com/loldabigboi/optimised-raycasting" ),
     new ProjectData( "Evolving Steering Agents", evolvingSteeringAgentsDesc, "resources/evolvingSteeringAgents.png", "projects/evolvedSteeringAgents/index.html", "https://github.com/loldabigboi"),
+    new ProjectData( "Digit Recognition", digitRecognitionDesc, "resources/digitRecognition.png", "projects/digitRecognition/index.html", "https://github.com/loldabigboi")
 ]  
 let nav = new Carousel(document.getElementById("carousel"), data, 5, 75, 'x', 50, 225, 1.2, 0.001, 0.005, 0.05, 0, 0);
 setInterval(() => { nav.update() }, 16);
