@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Jackson Ayling-Campbell</title>
+    <meta name="author" content="Jackson Ayling-Campbell">
+    <meta name="description" content="Home page for my portfolio">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Nunito|Pacifico|Quicksand|Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="../../globalStyle.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.min.js"></script>
+
+</head>
+
+<body>
+
+    <div id="nav-container">
+        <a id="home-nav-link" class="nav-link" href="/">
+            HOME
+        </a>
+        <a id="projects-nav-link" class="nav-link" href='/?screen="projects"'>
+            PROJECTS
+        </a>
+        <a id="about-nav-link" class="nav-link" href='/?screen="about"'>
+            ABOUT
+        </a>
+    </div>
+
+    <div id="content-container">
+        <div id="project-container">
+            <div id="canvas-container"></div>
+            <div id="information-container">
+                <h1 id="project-title" class="rainbow-animated-bg text-mask-bg">Digit Recognition</h1>
+                <a id="project-github-link" class="centered-link" href="#">
+                    <img class="inline-image-left" src="https://logo.clearbit.com/github.com">
+                    Github Repository
+                </a>
+                <div id="controls-container">
+                    <div id="button-container">
+                        <button onclick="clearCanvas()">Clear canvas</button>
+                        <button onclick="guess()">Guess</button>
+                    </div>
+                    
+                </div>
+                <div id="description-container">
+                    <p id="project-description">
+                        <span class="bold">Controls:</span><br>
+                        Various parameters regarding the simulation can be tweaked using the inputs above.
+                        "Debug", when turned on, renders the view radii and attraction / repulsion parameters for each agent.
+                        These graphics are colour-coded, green being for food, red for poison and blue for agents. If a circle (view radius) is highlit,
+                        that indicates that the given agent has detected an entity of that type in its view radius.
+                        <br><br>
+                        <span class="bold">Description:</span><br>
+                        This simulates the evolution of a species as they adapt to their environment. Said species is made up
+                        of steering agents; vehicles which have a velocity, position and steering mechanics according to what
+                        they are currently seeking. This steering behaviour is governed by 2 parameters - the view radius of the
+                        vehicle, and its attraction to a spotted entity. This attraction can be either positive or negative - 
+                        positive drawing the agent towards the entity, and negative doing the opposite. There are three types of
+                        entities in this world: food, poison and agents, all of which have unique parameter pairings in an agent.
+                        <br><br>
+                        Evolution is simulated by having an initial randomly generated population, and then having a small
+                        chance for them to reproduce asexually every frame. Eating food prolongs the lifespan of an agent, whereas
+                        eating poison decreases their lifespan. Hence, rather than having an explicit fitness function as is common
+                        to most genetic algorithms, this simulation uses a pseudo-fitness-function which dictates that the longer an
+                        agent survives, the more likely it is to reproduce (according to the laws of probability).
+                        <br><br>
+                        When an agent creates an offspring, this offspring inherits its 'DNA' from the parent, and every gene in this DNA has a 
+                        small chance of mutation during reproduction. Hence, natural selection is emulated. One problem with this simulation is that
+                        the initial population is admittedly too small, and so often the species simply dies out due to a lack of variety in genes
+                        (or lack of agents with favourable genes). To solve this a larger world would need to be created, so that more agents could be
+                        created initially without cramming them together.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="json" src="nn.json"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.min.js"></script>
+    <script type="text/javascript" src="neuralNetwork.js"></script>
+    <script type="text/javascript" src="math.js"></script>
+    <script type="text/javascript" src="layer.js"></script>
+    <script type="text/javascript" src="matrix.js"></script>
+    <script type="text/javascript" src="loadbytes.js"></script>
+    <script type="text/javascript" src="loadfile.js"></script>
+    <script type="text/javascript" src="parsedata.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+        
+</body>
+</html>
