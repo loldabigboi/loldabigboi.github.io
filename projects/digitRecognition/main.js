@@ -7,6 +7,10 @@ let trainingImageBytes, trainingLabelBytes,
     testingImageBytes , testingLabelBytes;
 let data;
 
+let firstGuessP;
+let secondGuessP;
+let thirdGuessP;
+
 function preload() {
 
     trainingImageBytes = loadBytes("train-images.idx3-ubyte");
@@ -23,6 +27,10 @@ function setup() {
     canvas.parent("canvas-container");
     background(0);
 
+    firstGuessP = document.getElementById("first-guess");
+    secondGuessP = document.getElementById("second-guess");
+    thirdGuessP = document.getElementById("third-guess");
+
 }
 
 function draw() {
@@ -33,10 +41,6 @@ function draw() {
 function resetGuessDisplay() {
 
     // reset guess displays
-    const firstGuessP = document.getElementById("first-guess");
-    const secondGuessP = document.getElementById("second-guess");
-    const thirdGuessP = document.getElementById("third-guess");
-
     firstGuessP.innerText = `? - ??.??% probability`
     secondGuessP.innerText = `? - ??.??% probability`
     thirdGuessP.innerText = `? - ??.??% probability`
@@ -88,10 +92,6 @@ function guess() {
     });
 
     // diplay guesses by updating corresponding paragraph elements
-    const firstGuessP = document.getElementById("first-guess");
-    const secondGuessP = document.getElementById("second-guess");
-    const thirdGuessP = document.getElementById("third-guess");
-
     firstGuessP.innerText = `${sortedOutputs[0].guess} - ${(sortedOutputs[0].probability*100).toFixed(2)}% probability`
     secondGuessP.innerText = `${sortedOutputs[1].guess} - ${(sortedOutputs[1].probability*100).toFixed(2)}% probability`
     thirdGuessP.innerText = `${sortedOutputs[2].guess} - ${(sortedOutputs[2].probability*100).toFixed(2)}% probability`
