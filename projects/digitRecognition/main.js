@@ -19,7 +19,7 @@ function preload() {
 
 function setup() {
 
-    let canvas = createCanvas(800, 600);
+    let canvas = createCanvas(600, 600);
     canvas.parent("canvas-container");
     background(0);
 
@@ -30,14 +30,32 @@ function draw() {
 
 }
 
+function resetGuessDisplay() {
+
+    // reset guess displays
+    const firstGuessP = document.getElementById("first-guess");
+    const secondGuessP = document.getElementById("second-guess");
+    const thirdGuessP = document.getElementById("third-guess");
+
+    firstGuessP.innerText = `? - ??.??% probability`
+    secondGuessP.innerText = `? - ??.??% probability`
+    thirdGuessP.innerText = `? - ??.??% probability`
+
+}
+
 function mouseDragged() {
+
     stroke(255);
     strokeWeight(28);
     line(pmouseX, pmouseY, mouseX, mouseY);
+
+    resetGuessDisplay()
+
 }
 
 function clearCanvas() {
     background(0);
+    resetGuessDisplay()
 }
 
 function guess() {
@@ -69,12 +87,14 @@ function guess() {
         return b.probability - a.probability;
     });
 
-    let outputStrings = [];
-    for (let i = 0; i < 3; i++) {
-        let cssStr = i==0 ? '%c' : '';
-        outputStrings.push(`${cssStr}${sortedOutputs[i].guess}${cssStr} - ${(sortedOutputs[i].probability*100).toFixed(2)}% probability\n`);
-    }
-    console.log(` ` + outputStrings[0], 'font-size: 18px; color: blue;', 'color: black',
-                outputStrings[1], outputStrings[2]);
+    // diplay guesses by updating corresponding paragraph elements
+    const firstGuessP = document.getElementById("first-guess");
+    const secondGuessP = document.getElementById("second-guess");
+    const thirdGuessP = document.getElementById("third-guess");
+
+    firstGuessP.innerText = `${sortedOutputs[0].guess} - ${(sortedOutputs[0].probability*100).toFixed(2)}% probability`
+    secondGuessP.innerText = `${sortedOutputs[1].guess} - ${(sortedOutputs[1].probability*100).toFixed(2)}% probability`
+    thirdGuessP.innerText = `${sortedOutputs[2].guess} - ${(sortedOutputs[2].probability*100).toFixed(2)}% probability`
+
 
 }
