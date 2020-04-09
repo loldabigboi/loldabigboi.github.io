@@ -1,25 +1,10 @@
 let nnJson = loadFile("nn.json");
-console.log(JSON.parse(nnJson));
 
 let neuralNetwork = NeuralNetwork.fromJSON(nnJson);
-
-let trainingImageBytes, trainingLabelBytes,
-    testingImageBytes , testingLabelBytes;
-let data;
 
 let firstGuessP;
 let secondGuessP;
 let thirdGuessP;
-
-function preload() {
-
-    trainingImageBytes = loadBytes("train-images.idx3-ubyte");
-    trainingLabelBytes = loadBytes("train-labels.idx1-ubyte");
-
-    testingImageBytes = loadBytes("t10k-images.idx3-ubyte");
-    testingLabelBytes = loadBytes("t10k-labels.idx1-ubyte");
-    
-}
 
 function setup() {
 
