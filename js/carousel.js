@@ -373,13 +373,13 @@ class ProjectData {
 
 }
 
-let raycastingDesc = `
+const raycastingDesc = `
 An advanced raycasting algorithm which builds upon the idea of firing rays at and around
 the vertices of the obstacles surrounding the raycaster, rather than at set intervals. This leads
 to greatly improved performance and precision of the resulting polygon (no jittering).
 `
 
-let evolvingSteeringAgentsDesc = `
+const evolvingSteeringAgentsDesc = `
 A simulation of Darwinian evolution utilising archetypal genetic algorithm techniques. In this simulation
 "agents" (vehicles which have steering behaviours) must navigate the area around them to find food and avoid
 poison. Food extends their lifespan, whereas poison decreases it. An agent's aversion / attraction (as well as 'view' radius) to food / poison / other agents
@@ -387,16 +387,22 @@ is generated randomly for the first generation, and then subsequent generations 
 of mutation.
 `
 
-let digitRecognitionDesc = `
+const digitRecognitionDesc = `
 A convolutional neural network that tries to guess the digit that you draw. Created using a neural network
 library that I programmed in javascript, using the p5js library for graphics rendering. Further details of the
 neural network itself can be found by demoing the project :).
 `
 
-let data = [ 
+const superPewPewDesc = `
+An arcade 2D shooter HTML5 game designed using a custom-built entity-component-system. Heavily inspired by the game Super Crate Box, but has numerous differences
+(360 movement, completely different graphics, etc.).
+`
+
+const data = [ 
     new ProjectData( "Advanced Raycasting", raycastingDesc, "resources/advancedRaycasting.png", "projects/raycasting/index.html", "https://github.com/loldabigboi/optimised-raycasting" ),
-    new ProjectData( "Evolving Steering Agents", evolvingSteeringAgentsDesc, "resources/evolvingSteeringAgents.png", "projects/evolvedSteeringAgents/index.html", "https://github.com/loldabigboi"),
-    new ProjectData( "Digit Recognition", digitRecognitionDesc, "resources/digitRecognition.png", "projects/digitRecognition/index.html", "https://github.com/loldabigboi")
+    new ProjectData( "Evolving Steering Agents", evolvingSteeringAgentsDesc, "resources/evolvingSteeringAgents.png", "projects/evolvedSteeringAgents/index.html", "https://github.com/loldabigboi/evolving-steering-agents"),
+    new ProjectData( "Digit Recognition", digitRecognitionDesc, "resources/digitRecognition.png", "projects/digitRecognition/index.html", "https://github.com/loldabigboi/ezml.js"),
+    new ProjectData( "Super Pew Pew", superPewPewDesc, "resources/superPewPew.png", "projects/superPewPew/index.html", "https://github.com/loldabigboi/super-pew-pew")
 ]  
-let nav = new Carousel(document.getElementById("carousel"), data, 5, 75, 'x', 50, 225, 1.2, 0.001, 0.005, 0.05, 0, 0);
+const nav = new Carousel(document.getElementById("carousel"), data, 5, 75, 'x', 50, 225, 1.2, 0.001, 0.005, 0.05, 0, 0);
 setInterval(() => { nav.update() }, 16);

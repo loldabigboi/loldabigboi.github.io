@@ -1,0 +1,71 @@
+canvas:focus {
+    outline: none;
+}
+
+@font-face {
+    font-family: 'ArcadeIn';
+    src: url('res/ArcadeIn.ttf');
+}
+
+@font-face {
+    font-family: 'ArcadeOut';
+    src: url('res/ArcadeOut.ttf');
+}
+
+#content-container {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+#project-container {
+    margin-top: 60px;
+}
+
+#project-title {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    display: block;
+}
+
+#project-github-link {
+    margin-bottom: 25px;
+}
+
+#canvas-container {
+
+    line-height: 0;
+    width: 1000px;
+    height: 600px;
+    float: left;
+    border: 2px solid black;
+
+}
+
+#information-container {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 25px;
+    box-sizing: border-box;
+    width: 600px;
+    height: 604px;  // to acount for borders of canvas
+    float: right;
+
+}
+
+#description-container {
+    padding-right: 10px;  // to account for scrollbar
+    line-height: 24px;
+    text-align: justify;
+    overflow-y: scroll;
+}
+
+#controls-list {
+    white-space: normal;
+    list-style-position: inside;
+}

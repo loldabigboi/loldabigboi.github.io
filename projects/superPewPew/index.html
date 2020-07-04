@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="author" content="">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Nunito|Pacifico|Quicksand|Permanent+Marker&display=swap" rel="stylesheet">
+  <link href="../../globalStyle.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="nav-container">
+        <a id="home-nav-link" class="nav-link" href="/">
+            HOME
+        </a>
+        <a id="projects-nav-link" class="nav-link" href='/?screen="projects"'>
+            PROJECTS
+        </a>
+        <a id="about-nav-link" class="nav-link" href='/?screen="about"'>
+            ABOUT
+        </a>
+    </div>
+
+    <div id="content-container">
+        <div id="project-container">
+            <div id="canvas-container">
+                <canvas id="canvas" tabindex="1"></canvas>
+            </div>
+            <div id="information-container">
+                <h1 id="project-title" class="rainbow-animated-bg text-mask-bg">Super Pew Pew</h1>
+                <a id="project-github-link" class="centered-link" href="https://github.com/loldabigboi/super-pew-pew">
+                    <img class="inline-image-left" src="https://logo.clearbit.com/github.com">
+                    Github Repository
+                </a>
+                <div id="description-container">
+                    <ul id="controls-list"><span class="bold">Controls:</span>
+                        <li>WASD to move</li>
+                        <li>Left click to shoot</li>
+                        <li>Space to jump (hold for larger jump)</li>
+                    </ul>
+                    <br>
+                    <p id="project-description">
+                        <span class='bold'>Instructions:</span><br>
+                        Collect as many weapon crates (rainbow squares) as you can before succumbing to the endless hordes of relentless squares.
+                        Make full use of the weapons provided to you by the weapon crates, as without them you stand little chance. Let enemies reach
+                        the bottom of the stage at your own risk, as they will become enraged, increasing in speed and ferocity o_O.
+                        <br><br>
+                        <span class='bold'>Description:</span><br>
+                        <span class="rainbow-animated-bg text-mask-bg">Super Pew Pew</span> is an HTML5 game made (mostly) from scratch. 
+                        It is designed using a custom entity-component-system (ECS) programmed from the ground up by me. 
+                        This system facilitates the fundamental behaviours necessary for most games, such as physics simulation, mouse interaction,
+                        layered rendering, event management, etc.
+                        <br><br>
+                        The game utilises the <a class='inline-link' href="https://github.com/schteppe/p2.js">p2.js</a> library (made by Stefan Hedman) for physics simulation, 
+                        and uses the font '<a class='inline-link' href="https://www.dafont.com/8-bit-arcade.font">8-bit Arcade</a>' created by Damien Gosset.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LIBRARIES -->
+    <script src="lib/p2.js"></script>
+
+    <!-- COMPONENTS -->
+    <script src="components/Component.js"></script>
+    <script src="components/RenderFilterComponent.js"></script>
+    <script src="components/MouseInteractableComponent.js"></script>
+    <script src="components/DelayedCallbackComponent.js"></script>
+    <script src="components/TextRenderComponent.js"></script>
+    <script src="components/RepeatingCallbackComponent.js"></script>
+    <script src="components/ParentComponent.js"></script>
+    <script src="components/FlyingEnemyAIComponent.js"></script>
+    <script src="components/HealthComponent.js"></script>
+    <script src="components/FatalDependencyComponent.js"></script>
+    <script src="components/ContactDamageComponent.js"></script>
+    <script src="components/TeleporterComponent.js"></script>
+    <script src="components/ProjectileComponent.js"></script>
+    <script src="components/JumpComponent.js"></script>
+    <script src="components/BasicEnemyAIComponent.js"></script>
+    <script src="components/EnemyComponent.js"></script>
+    <script src="components/ShapeComponent.js"></script>
+    <script src="components/LoopCallbackComponent.js"></script>
+    <script src="components/WeaponComponent.js"></script>
+    <script src="components/ProjectileWeaponComponent.js"></script>
+    <script src="components/PhysicsComponent.js"></script>
+    <script src="components/ImageRenderComponent.js"></script>
+    <script src="components/RenderComponent.js"></script>
+    <script src="components/TransformComponent.js"></script>
+
+    <!-- SYSTEMS -->
+    <script src="systems/System.js"></script>
+    <script src="systems/MouseInteractableSystem.js"></script>
+    <script src="systems/FlyingEnemyAISystem.js"></script>
+    <script src="systems/RepeatingCallbackSystem.js"></script>
+    <script src="systems/DelayedCallbackSystem.js"></script>
+    <script src="systems/ParentSystem.js"></script>
+    <script src="systems/JumpSystem.js"></script>
+    <script src="systems/FatalDependencySystem.js"></script>
+    <script src="systems/ContactDamageSystem.js"></script>
+    <script src="systems/TeleporterSystem.js"></script>
+    <script src="systems/ProjectileSystem.js"></script>
+    <script src="systems/ProjectileWeaponSystem.js"></script>
+    <script src="systems/LoopCallbackSystem.js"></script>
+    <script src="systems/PhysicsSystem.js"></script>
+    <script src="systems/BasicEnemyAISystem.js"></script>
+    <script src="systems/RenderSystem.js"></script>
+
+    <!-- FACTORIES -->
+    <script src="factories/PlatformFactory.js"></script>
+    <script src="factories/GUIFactory.js"></script>
+    <script src="factories/CallbackFactory.js"></script>
+    <script src="factories/ParticleEmitterFactory.js"></script>
+    <script src="factories/WeaponFactory.js"></script>
+    <script src="factories/BasicEnemyFactory.js"></script>
+
+    <!-- SCENES -->
+    <script src="scenes/Scene.js"></script>
+    <script src="scenes/GameScene.js"></script>
+    <script src="scenes/StatsScene.js"></script>
+    <script src="scenes/MainMenuScene.js"></script>
+
+    <!-- UTIL -->
+    <script src="util/Observable.js"></script>
+
+    <!-- MAIN -->
+    <script src="main/Callbacks.js"></script>
+    <script src="main/Offsets.js"></script>
+    <script src="main/InputManager.js"></script>
+    <script src="main/ResourceManager.js"></script>
+    <script src="main/TransmittedEvent.js"></script>
+    <script src="main/StatsManager.js"></script>
+    <script src="main/Entity.js"></script>
+    <script src="main/Game.js"></script>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
