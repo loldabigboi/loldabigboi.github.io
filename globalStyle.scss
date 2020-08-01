@@ -98,6 +98,24 @@ body, html {
 
 }
 
+.arrow-right {
+  width: 0; 
+  height: 0; 
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  
+  border-left: 28px solid black;
+}
+
+.arrow-left {
+  width: 0; 
+  height: 0; 
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent; 
+  
+  border-right:28px solid black; 
+}
+
 .active-underline {
 
     position: absolute;
@@ -108,6 +126,8 @@ body, html {
     transition: all ease-in-out 0.5s;
 
 }
+
+
 
 .inline-image-left {
 

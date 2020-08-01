@@ -359,6 +359,11 @@ class Carousel {
 
     }
 
+    scroll(dir) {
+        this.unSnap();
+        this.speed = 0.725 * (dir === 'right' ? -1 : 1);
+    }
+
 }
 
 class ProjectData {
@@ -404,5 +409,5 @@ const data = [
     new ProjectData( "Digit Recognition", digitRecognitionDesc, "resources/digitRecognition.png", "projects/digitRecognition/index.html", "https://github.com/loldabigboi/ezml.js"),
     new ProjectData( "Super Pew Pew", superPewPewDesc, "resources/superPewPew.png", "projects/superPewPew/index.html", "https://github.com/loldabigboi/super-pew-pew")
 ]  
-const nav = new Carousel(document.getElementById("carousel"), data, 5, 75, 'x', 50, 225, 1.2, 0.001, 0.005, 0.05, 0, 0);
-setInterval(() => { nav.update() }, 16);
+const carousel = new Carousel(document.getElementById("carousel"), data, 5, 75, 'x', 50, 225, 1.2, 0.001, 0.005, 0.05, 0, 0);
+setInterval(() => { carousel.update() }, 16);
