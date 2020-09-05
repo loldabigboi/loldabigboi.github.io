@@ -119,6 +119,13 @@ class Carousel {
         this.onMouseUpCallback    = (e) => { this.onMouseUp(e);    };
 
         this.element.addEventListener("mousedown", this.onMouseDownCallback);
+        
+        this.onSelectedClickCallback = (e) => { 
+            if (this.speed == 0) {
+                document.getElementById("project-page-link").click() 
+            }
+        };
+
         this.update();
 
     }
@@ -276,6 +283,8 @@ class Carousel {
         } else {
 
             this.selectedItem = item;
+            this.selectedItem.classList.add("clickable");
+            this.selectedItem.addEventListener("mouseup", this.onSelectedClickCallback);
             this.selectedItem.style.border = "2px solid transparent";
 
             titleElement.style.opacity = 1;
@@ -295,6 +304,8 @@ class Carousel {
 
         if (this.selectedItem) {
             this.selectedItem.style.border = "2px solid white";
+            this.selectedItem.classList.remove("clickable");
+            this.selectedItem.removeEventListener("mouseup", this.onSelectedClickCallback);
         }
         this.selectedItem = null;
 
@@ -353,7 +364,6 @@ class Carousel {
     onMouseUp(e) {
 
         this.userMoving = false;
-        console.log("mouseup");
         document.removeEventListener("mousemove", this.onMouseMoveCallback);
         document.removeEventListener("mouseup", this.onMouseUpCallback);
 

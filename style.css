@@ -119,6 +119,14 @@ body, html {
   opacity: 75%;
 }
 
+.project-nav-button {
+  border-radius: 7px;
+  padding: 5px 11px;
+  -webkit-box-shadow: 4px 4px 20px -11px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 4px 4px 20px -11px rgba(0, 0, 0, 0.75);
+  box-shadow: 6px 4px 20px -12px rgba(0, 0, 0, 0.75);
+}
+
 #project-github-link {
   float: left;
 }
@@ -128,6 +136,7 @@ body, html {
 }
 
 #project-description {
+  margin-top: 17px;
   line-height: 24px;
   text-align: justify;
 }
@@ -140,10 +149,13 @@ body, html {
 }
 
 .carousel-item {
-  pointer-events: none;
   position: absolute;
   border: 2px solid white;
   transition: border-color 0.5s ease-in-out;
+}
+
+.clickable:hover {
+  cursor: pointer;
 }
 
 #about-container {
