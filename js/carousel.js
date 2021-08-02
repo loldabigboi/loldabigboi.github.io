@@ -97,7 +97,7 @@ class Carousel {
             carouselItem.style.height = this.maxItemSize + "px";
             
             let nestedImg = document.createElement("img");
-            nestedImg.draggable = false;
+            nestedImg.style.pointerEvents = 'none';
             nestedImg.src = data.image;
             nestedImg.style.width = "100%";
             nestedImg.style.height = "100%";
@@ -251,11 +251,11 @@ class Carousel {
             if (smallestAbsDist < this.snapToCenterDistance) {
                 this.hasSnapped = true;
                 this.speed = smallestDist;
-            }
-            
-            this.speed += Math.sign(smallestDist) * this.snapAcceleration;
-            if (smallestAbsDist < this.snapSlowDistance) {
-                this.speed *= map(smallestAbsDist, 0, this.snapSlowDistance, 0.25, 1);
+            } else {
+                this.speed += Math.sign(smallestDist) * this.snapAcceleration;
+                if (smallestAbsDist < this.snapSlowDistance) {
+                    this.speed *= map(smallestAbsDist, 0, this.snapSlowDistance, 0.25, 1);
+                }
             }
 
         } else {

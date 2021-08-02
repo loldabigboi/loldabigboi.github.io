@@ -43,7 +43,8 @@ body, html {
 }
 
 #nav-container {
-  width: fit-content;
+  width: 500px;
+  text-align: center;
   margin: 66px auto;
 }
 #nav-container a + a {
