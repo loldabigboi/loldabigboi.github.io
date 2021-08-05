@@ -395,7 +395,7 @@ to greatly improved performance and precision of the resulting polygon (no jitte
 `
 
 const evolvingSteeringAgentsDesc = `
-A simulation of Darwinian evolution utilising archetypal genetic algorithm techniques. In this simulation
+A simulation of Darwinian evolution utilising a genetic algorithm. In this simulation
 "agents" (vehicles which have steering behaviours) must navigate the area around them to find food and avoid
 poison. Food extends their lifespan, whereas poison decreases it. An agent's aversion / attraction (as well as 'view' radius) to food / poison / other agents
 is generated randomly for the first generation, and then subsequent generations inherit from their parents with some chance
