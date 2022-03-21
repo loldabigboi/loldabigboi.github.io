@@ -414,10 +414,10 @@ An arcade 2D shooter HTML5 game designed using a custom-built entity-component-s
 `
 
 const data = [ 
-    new ProjectData( "Advanced Raycasting", raycastingDesc, "resources/advancedRaycasting.png", "projects/raycasting/index.html", "https://github.com/loldabigboi/optimised-raycasting" ),
-    new ProjectData( "Evolving Steering Agents", evolvingSteeringAgentsDesc, "resources/evolvingSteeringAgents.png", "projects/evolvedSteeringAgents/index.html", "https://github.com/loldabigboi/evolving-steering-agents"),
-    new ProjectData( "Digit Recognition", digitRecognitionDesc, "resources/digitRecognition.png", "projects/digitRecognition/index.html", "https://github.com/loldabigboi/website/tree/master/projects/digitRecognition"),
-    new ProjectData( "Super Pew Pew", superPewPewDesc, "resources/superPewPew.png", "projects/superPewPew/index.html", "https://github.com/loldabigboi/super-pew-pew")
+    new ProjectData( "Advanced Raycasting", raycastingDesc, "resources/advancedRaycasting.png", "projects/raycasting/index.html", "https://github.com/smolboii/optimised-raycasting" ),
+    new ProjectData( "Evolving Steering Agents", evolvingSteeringAgentsDesc, "resources/evolvingSteeringAgents.png", "projects/evolvedSteeringAgents/index.html", "https://github.com/smolboii/evolving-steering-agents"),
+    new ProjectData( "Digit Recognition", digitRecognitionDesc, "resources/digitRecognition.png", "projects/digitRecognition/index.html", "https://github.com/smolboii/website/tree/master/projects/digitRecognition"),
+    new ProjectData( "Super Pew Pew", superPewPewDesc, "resources/superPewPew.png", "projects/superPewPew/index.html", "https://github.com/smolboii/super-pew-pew")
 ]  
 const carousel = new Carousel(document.getElementById("carousel"), data, 5, 75, 'x', 50, 225, 1.2, 0.001, 0.005, 0.05, 0, 0);
 setInterval(() => { carousel.update() }, 16);
